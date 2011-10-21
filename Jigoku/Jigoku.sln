@@ -1,0 +1,32 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Jigoku", "Jigoku\Jigoku.csproj", "{0F2A953F-3989-4767-917F-C4C9A66990E6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Jigoku.Tests", "Jigoku.Tests\Jigoku.Tests.csproj", "{45CD4AA0-453D-4941-B9E0-220FF9202E32}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Jigoku.ORM", "Jigoku.ORM\Jigoku.ORM.csproj", "{FAF231EA-2C47-484C-9099-9327F46A2B09}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{0F2A953F-3989-4767-917F-C4C9A66990E6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0F2A953F-3989-4767-917F-C4C9A66990E6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0F2A953F-3989-4767-917F-C4C9A66990E6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0F2A953F-3989-4767-917F-C4C9A66990E6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{45CD4AA0-453D-4941-B9E0-220FF9202E32}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{45CD4AA0-453D-4941-B9E0-220FF9202E32}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{45CD4AA0-453D-4941-B9E0-220FF9202E32}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{45CD4AA0-453D-4941-B9E0-220FF9202E32}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FAF231EA-2C47-484C-9099-9327F46A2B09}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FAF231EA-2C47-484C-9099-9327F46A2B09}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FAF231EA-2C47-484C-9099-9327F46A2B09}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FAF231EA-2C47-484C-9099-9327F46A2B09}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
