@@ -1,3 +1,9 @@
 *.suo
 *.vs10x
 *.pdb
+/Jikogu.Tests/bin
+/Jikogu.Tests/obj
+/Jigoku/Jigoku.ORM/bin
+/Jigoku/Jigoku.ORM/obj
+/Jigoku/Jigoku/bin
+/Jigoku/Jigoku/obj
