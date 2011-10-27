@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" assembly="Jigoku.Core" namespace="Jigoku.Core.Entities">
+	<class name="User">
+		<id name="Uid">
+			<column name="UserId"/>
+			<generator class="sequence">
+				<param name="user_userid_seq"/>
+			</generator>
+		</id>
+		<property name="NickName" not-null="true"/>
+		<property name="Password" not-null="true"/>
+		<property name="PrimaryMail" column="email" not-null="true"/>
+		<property name="UserPhoto"/>
+		<list name="Contacts" cascade="all-delete-orphans">
+			<key column="UserId" on-delete="cascade"/>
+			<index column="Id"/>
+			<one-to-many class="Contacts"/>
+		</list>
+	</class>
+</hibernate-mapping>

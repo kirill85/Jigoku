@@ -5,7 +5,7 @@ using System.Text;
 
 using Npgsql;
 
-namespace DevLair.ORM.Npgsql
+namespace Jigoku.Core.Npgsql
 {
     public static class DLExecute
     {

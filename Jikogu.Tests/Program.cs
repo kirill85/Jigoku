@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Reflection;
 
-namespace Jikogu.Tests
+namespace Jigoku.Tests
 {
     class Program
     {

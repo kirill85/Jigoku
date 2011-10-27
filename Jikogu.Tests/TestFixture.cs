@@ -6,7 +6,7 @@ using NUnit.Framework;
 
 using nCrypto;
 
-namespace Jikogu.Tests
+namespace Jigoku.Tests
 {
     [TestFixture]
     public class ConnectionTest
