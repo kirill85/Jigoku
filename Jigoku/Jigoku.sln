@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Jigoku.ORM", "Jigoku.ORM\Ji
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Jikogu.Tests", "..\Jikogu.Tests\Jikogu.Tests.csproj", "{7EDB2300-AD5F-4295-BDCC-14F08AFE71DD}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Jigoku.Core", "Jigoku.Core\Jigoku.Core.csproj", "{F9F19A16-790B-4A17-A0A5-D8150A92C09F}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -47,6 +49,16 @@ Global
 		{7EDB2300-AD5F-4295-BDCC-14F08AFE71DD}.Release|Mixed Platforms.Build.0 = Release|x86
 		{7EDB2300-AD5F-4295-BDCC-14F08AFE71DD}.Release|x86.ActiveCfg = Release|x86
 		{7EDB2300-AD5F-4295-BDCC-14F08AFE71DD}.Release|x86.Build.0 = Release|x86
+		{F9F19A16-790B-4A17-A0A5-D8150A92C09F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F9F19A16-790B-4A17-A0A5-D8150A92C09F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F9F19A16-790B-4A17-A0A5-D8150A92C09F}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{F9F19A16-790B-4A17-A0A5-D8150A92C09F}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{F9F19A16-790B-4A17-A0A5-D8150A92C09F}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{F9F19A16-790B-4A17-A0A5-D8150A92C09F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F9F19A16-790B-4A17-A0A5-D8150A92C09F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F9F19A16-790B-4A17-A0A5-D8150A92C09F}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{F9F19A16-790B-4A17-A0A5-D8150A92C09F}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{F9F19A16-790B-4A17-A0A5-D8150A92C09F}.Release|x86.ActiveCfg = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

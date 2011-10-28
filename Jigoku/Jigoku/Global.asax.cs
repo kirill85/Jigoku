@@ -4,8 +4,11 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using System.Web.Routing;
+using NHibernate;
+using NHibernate.Cfg;
+using NHibernate.Context;
 
-namespace DevLair
+namespace Jigoku
 {
     // Note: For instructions on enabling IIS6 or IIS7 classic mode, 
     // visit http://go.microsoft.com/?LinkId=9394801
@@ -35,6 +38,28 @@ namespace DevLair
 
             RegisterGlobalFilters(GlobalFilters.Filters);
             RegisterRoutes(RouteTable.Routes);
+            var nhConfig = new Configuration().Configure();
+            SessionFactory = nhConfig.BuildSessionFactory();
         }
+
+        /*protected void Application_Start(object sender, EventArgs args)
+        {
+            var nhConfig = new Configuration().Configure();
+            SessionFactory = nhConfig.BuildSessionFactory();
+        }*/
+
+        protected void Application_BeginRequest(object sender, EventArgs args)
+        {
+            var session = SessionFactory.OpenSession();
+            CurrentSessionContext.Bind(session);
+        }
+
+        protected void Application_EndRequest(object sender, EventArgs args)
+        {
+            var session = CurrentSessionContext.Unbind(SessionFactory);
+            session.Dispose();
+        }
+
+        public static ISessionFactory SessionFactory { get; private set; }
     }
 }

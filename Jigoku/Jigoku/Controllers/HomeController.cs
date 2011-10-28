@@ -4,13 +4,13 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 
-namespace DevLair.Controllers
+namespace Jigoku.Controllers
 {
     public class HomeController : Controller
     {
         public ActionResult Index()
         {
-            ViewBag.Message = "Welcome to DevLair!";
+            ViewBag.Message = "Welcome to Jigoku!";
 
             return View();
         }
