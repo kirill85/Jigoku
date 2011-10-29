@@ -21,7 +21,7 @@ namespace Jigoku.ORM.Repository
             return (nickCount > 0);
         }
 
-        public void AddUser(ref string nickName, ref string password, ref string PrimaryMail, ref byte[] userPhoto = null)
+        public void AddUser(ref string nickName, ref string password, ref string PrimaryMail, byte[] userPhoto = null)
         {
             if (!IsDuplicateNickname(nickName))
             {
