@@ -5,7 +5,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Jigoku", "Jigoku\Jigoku.csp
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Jigoku.ORM", "Jigoku.ORM\Jigoku.ORM.csproj", "{FAF231EA-2C47-484C-9099-9327F46A2B09}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Jikogu.Tests", "..\Jikogu.Tests\Jikogu.Tests.csproj", "{7EDB2300-AD5F-4295-BDCC-14F08AFE71DD}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Jigoku.Tests", "..\Jikogu.Tests\Jigoku.Tests.csproj", "{7EDB2300-AD5F-4295-BDCC-14F08AFE71DD}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Jigoku.Core", "Jigoku.Core\Jigoku.Core.csproj", "{F9F19A16-790B-4A17-A0A5-D8150A92C09F}"
 EndProject

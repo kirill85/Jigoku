@@ -8,7 +8,7 @@
     <ProjectGuid>{F9F19A16-790B-4A17-A0A5-D8150A92C09F}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Jigoku.Core</RootNamespace>
+    <RootNamespace>Jigoku.ORM</RootNamespace>
     <AssemblyName>Jigoku.Core</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>

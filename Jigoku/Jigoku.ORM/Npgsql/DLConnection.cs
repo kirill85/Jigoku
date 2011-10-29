@@ -6,7 +6,7 @@ using System.Text;
 using nCrypto;
 using Npgsql;
 
-namespace Jigoku.Core.Npgsql
+namespace Jigoku.ORM.Npgsql
 {
     static class DLConnection
     {
