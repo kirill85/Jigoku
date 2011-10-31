@@ -42,12 +42,6 @@ namespace Jigoku
             SessionFactory = nhConfig.BuildSessionFactory();
         }
 
-        /*protected void Application_Start(object sender, EventArgs args)
-        {
-            var nhConfig = new Configuration().Configure();
-            SessionFactory = nhConfig.BuildSessionFactory();
-        }*/
-
         protected void Application_BeginRequest(object sender, EventArgs args)
         {
             var session = SessionFactory.OpenSession();
