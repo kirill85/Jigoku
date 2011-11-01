@@ -9,6 +9,7 @@ using System.Web.Routing;
 using System.Web.Security;
 using Jigoku.Models;
 
+///TODO: Recode all this stuff
 namespace Jigoku.Controllers
 {
     public class AccountController : Controller
