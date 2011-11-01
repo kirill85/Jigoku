@@ -8,15 +8,12 @@
     <script type="text/javascript" src="http://jashkenas.github.com/coffee-script/extras/coffee-script.js"></script>
   
     <script type="text/coffeescript">
-
       show_message = (msg) -> 
         $('#message').hide().text(msg).fadeIn(2222, 
           -> $('#message').append('!') 
         )
-              
       $ -> show_message "world"
       $('#message').click -> show_message "you"
-      
     </script>
 
 </head>
@@ -34,12 +31,10 @@
             </div>
 
             <div id="menucontainer">
-
                 <ul id="menu">
                     <li>@Html.ActionLink("Home", "Index", "Home")</li>
                     <li>@Html.ActionLink("About", "About", "Home")</li>
                 </ul>
-
             </div>
         </div>
 
