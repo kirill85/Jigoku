@@ -9,6 +9,14 @@ namespace Jigoku.ORM.Repository
     {
         private List<User> users;
 
+        public List<User> Users
+        {
+            get
+            {
+                return users;
+            }
+        }
+
         public UserRepository()
         {
             users = new List<User>();
@@ -90,6 +98,20 @@ namespace Jigoku.ORM.Repository
                     }
                     users.Remove(user);
                     users.Add(modifyUser);
+                }
+            }
+        }
+
+        public void DeleteUser(string userNickname)
+        {
+            using (var session = ConfigureRepository.SessionFactory.OpenSession())
+            {
+                using (var transaction = session.BeginTransaction())
+                {
+                    var user = findUserByName(userNickname);
+                    session.Delete(user);
+                    users.Remove(user);
+                    transaction.Commit();
                 }
             }
         }

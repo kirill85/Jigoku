@@ -68,7 +68,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AddUserTest.cs" />
+    <Compile Include="UserTest.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ConnectionTest.cs" />
@@ -82,6 +82,10 @@
     <None Include="NUnit\nunit.core.dll" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Jigoku\Jigoku.Core\Jigoku.Core.csproj">
+      <Project>{F9F19A16-790B-4A17-A0A5-D8150A92C09F}</Project>
+      <Name>Jigoku.Core</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Jigoku\Jigoku.ORM\Jigoku.ORM.csproj">
       <Project>{FAF231EA-2C47-484C-9099-9327F46A2B09}</Project>
       <Name>Jigoku.ORM</Name>
