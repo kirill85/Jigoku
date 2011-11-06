@@ -67,13 +67,13 @@ namespace Jigoku.ORM.Repository
                         try
                         {
                             session.Save(newUser);
+                            users.Add(newUser);
                             transaction.Commit();
                         }
                         catch (HibernateException)
                         {
                             transaction.Rollback();
-                        }
-                        users.Add(newUser);
+                        }                        
                     }
                 }
             }
@@ -96,13 +96,13 @@ namespace Jigoku.ORM.Repository
                         }
                         session.SaveOrUpdate(modifyUser);
                         transaction.Commit();
+                        users.Remove(user);
+                        users.Add(modifyUser);
                     }
                     catch (HibernateException)
                     {
                         transaction.Rollback();
                     }
-                    users.Remove(user);
-                    users.Add(modifyUser);
                 }
             }
         }
