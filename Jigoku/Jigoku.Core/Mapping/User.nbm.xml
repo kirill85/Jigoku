@@ -7,10 +7,10 @@
 				<param name="user_userid_seq"/>
 			</generator>
 		</id>
-		<property name="NickName" not-null="true"/>
-		<property name="Password" not-null="true"/>
-		<property name="PrimaryMail" column="email" not-null="true"/>
-		<property name="UserPhoto"/>
+		<property name="NickName" type="text" not-null="true"/>
+		<property name="Password" type="text" not-null="true"/>
+		<property name="PrimaryMail" type="text" column="email" not-null="true"/>
+		<property name="UserPhoto" type="character varying[500]"/>
 		<list name="Contacts" cascade="all-delete-orphans">
 			<key column="UserId" on-delete="cascade"/>
 			<index column="Id"/>

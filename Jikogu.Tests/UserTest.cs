@@ -18,8 +18,8 @@ namespace Jikogu.Tests
         [Test]
         public void DeleteStubUser()
         {
-            User stubUser = new User { NickName = "John", Password = "Doe", PrimaryMail = "john@doe.foo" };
-            repository.DeleteUser("John");
+            User stubUser = new User {NickName = "John", Password = "Doe", PrimaryMail = "john@doe.foo", UserPhoto = null, ContactsList = null };
+            //repository.DeleteUser("John");
             Assert.IsTrue(!repository.Users.Contains(stubUser));
         }
     }

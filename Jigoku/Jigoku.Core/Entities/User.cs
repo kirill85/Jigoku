@@ -10,7 +10,7 @@ namespace Jigoku.Core.Entities
         public virtual string NickName { get; set; }
         public virtual string Password { get; set; }
         public virtual string PrimaryMail { get; set; }
-        public virtual byte[] UserPhoto { get; set; }
+        public virtual string UserPhoto { get; set; }
         public IList<Contacts> ContactsList { get; set; }
     }
 }

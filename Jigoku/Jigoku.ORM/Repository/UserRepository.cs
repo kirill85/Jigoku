@@ -33,6 +33,11 @@ namespace Jigoku.ORM.Repository
             return (nickCount > 0);
         }
 
+        private bool IsExistUser(string nickName)
+        {
+            return IsDuplicateNickname(nickName);
+        }
+
         private User findUserByName(string nickname)
         {
             foreach (var user in users)
@@ -46,7 +51,7 @@ namespace Jigoku.ORM.Repository
             return null;
         }
 
-        public void AddUser(string nickName, string password, string PrimaryMail, byte[] userPhoto = null)
+        public void AddUser(string nickName, string password, string PrimaryMail, string userPhoto = null)
         {
             if (!IsDuplicateNickname(nickName))
             {
@@ -108,10 +113,13 @@ namespace Jigoku.ORM.Repository
             {
                 using (var transaction = session.BeginTransaction())
                 {
-                    var user = findUserByName(userNickname);
-                    session.Delete(user);
-                    users.Remove(user);
-                    transaction.Commit();
+                    if (IsExistUser(userNickname))
+                    {
+                        var user = findUserByName(userNickname);
+                        session.Delete(user);
+                        users.Remove(user);
+                        transaction.Commit();
+                    }
                 }
             }
         }
