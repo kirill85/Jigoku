@@ -15,6 +15,9 @@ namespace Jigoku.Tests
             int returnCode = NUnit.ConsoleRunner.Runner.Main(my_args);
             if (returnCode != 0)
                 Console.Beep();
+
+            Console.ForegroundColor = ConsoleColor.White;
+            Console.WriteLine("Done, press any key to continue");
             Console.ReadKey();
         }
     }
