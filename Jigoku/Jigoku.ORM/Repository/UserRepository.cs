@@ -52,32 +52,28 @@ namespace Jigoku.ORM.Repository
         }
 
         public void AddUser(string nickName, string password, string PrimaryMail, string userPhoto = null)
-        {
-            if (!IsDuplicateNickname(nickName))
-            {
-                var newUser = new User();
-                newUser.NickName = nickName;
-                newUser.Password = password;
-                newUser.PrimaryMail = PrimaryMail;
-                newUser.UserPhoto = userPhoto;
-                using (var session = ConfigureRepository.SessionFactory.OpenSession())
-                {
-                    using (var transaction = session.BeginTransaction())
-                    {
-                        try
-                        {
-                            session.Save(newUser);
-                            users.Add(newUser);
-                            transaction.Commit();
-                        }
-                        catch (HibernateException)
-                        {
-                            transaction.Rollback();
-                        }                        
-                    }
-                }
-            }
-            else throw new DuplicateValueException();
+        {           
+               var newUser = new User();
+               newUser.NickName = nickName;
+               newUser.Password = password;
+               newUser.PrimaryMail = PrimaryMail;
+               newUser.UserPhoto = userPhoto;
+               using (var session = ConfigureRepository.SessionFactory.OpenSession())
+               {
+                   using (var transaction = session.BeginTransaction())
+                   {
+                      try
+                      {
+                          session.Save(newUser);
+                          users.Add(newUser);
+                          transaction.Commit();
+                      }
+                      catch (HibernateException)
+                      {
+                          transaction.Rollback();
+                      }                        
+                   }
+              }
         }
 
         public void ChangePassword(string userNickname, string oldPassword, string newPassword)
