@@ -50,7 +50,7 @@ namespace Jikogu.Tests
             TestHelper.log("Deleting test user John Doe");
             try
             {
-                User stubUser = new User { NickName = "John", Password = "Doe", PrimaryMail = "john@doe.foo", UserPhoto = null, ContactsList = null };
+                User stubUser = new User { NickName = "John", Password = "Doe", PrimaryMail = "john@doe.foo", UserPhoto = null, Contacts = null };
                 //repository.DeleteUser("John");
                 Assert.IsTrue(!repository.Users.Contains(stubUser));
                 TestHelper.done();
