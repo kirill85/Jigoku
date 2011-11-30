@@ -38,8 +38,10 @@ namespace Jigoku
 
             RegisterGlobalFilters(GlobalFilters.Filters);
             RegisterRoutes(RouteTable.Routes);
+#if _MyDEBUG
             var nhConfig = new Configuration().Configure();
             SessionFactory = nhConfig.BuildSessionFactory();
+#endif
         }
 
         protected void Application_BeginRequest(object sender, EventArgs args)

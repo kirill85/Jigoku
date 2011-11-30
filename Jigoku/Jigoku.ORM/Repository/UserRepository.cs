@@ -20,7 +20,7 @@ namespace Jigoku.ORM.Repository
         public UserRepository()
         {
             users = new List<User>();
-            ConfigureRepository.Init();
+            ConfigureRepository.ConfigureRepository();
         }
 
         private bool IsDuplicateNickname(string nickName)
@@ -46,7 +46,7 @@ namespace Jigoku.ORM.Repository
                 {
                     return user;
                 }
-                else return null;
+                //else return null;
             }
             return null;
         }
@@ -119,5 +119,26 @@ namespace Jigoku.ORM.Repository
                 }
             }
         }
+
+        #region UserInfo
+        public string GetUserNickname(int userId)
+        {
+            User user = null;
+            using (var sx = ConfigureRepository.SessionFactory.GetCurrentSession())
+            {
+                using (var tx = sx.BeginTransaction())
+                {
+                    user = sx.Get<User>(userId);
+                    tx.Commit();
+                }
+            }
+            return user.NickName;
+        }
+
+        public string GetUserPhoto(int userId)
+        {
+
+        }
+        #endregion
     }
 }

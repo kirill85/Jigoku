@@ -41,7 +41,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AbstractEntity.cs" />
+    <Compile Include="CommonPM.cs" />
     <Compile Include="Entities\Contacts.cs" />
+    <Compile Include="Entities\PrivateMessage.cs" />
+    <Compile Include="Entities\PrivateMessageInput.cs" />
+    <Compile Include="Entities\PrivateMessageOutput.cs" />
     <Compile Include="Entities\User.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -52,6 +56,10 @@
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Mapping\Contacts.hbm.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Mapping\CommonPM.hbm.xml" />
+    <Content Include="Mapping\PrivateMessageOutput.hbm.xml" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
