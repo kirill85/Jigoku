@@ -20,7 +20,7 @@ namespace Jigoku.ORM.Repository
         public UserRepository()
         {
             users = new List<User>();
-            ConfigureRepository.ConfigureRepository();
+            //ConfigureRepository.ConfigureRepository();
         }
 
         private bool IsDuplicateNickname(string nickName)
