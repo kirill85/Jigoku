@@ -10,7 +10,7 @@ namespace Jigoku.ORM.Repository
     {
         public static ISessionFactory SessionFactory { get; set; }
 
-        public static ConfigureRepository()
+        static ConfigureRepository()
         {
             if (!IsConfigured())
             {

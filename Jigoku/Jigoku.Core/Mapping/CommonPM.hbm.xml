@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" namespace="Jigoku.Core" assembly="Jigoku.Core">
+	<class name="CommonPM">
+		<id name="Id">
+			<generator class="sequence">
+				<param name="commonpm_id_seq"/>
+			</generator>
+		</id>
+		<property name="Topic"/>
+		<property name="Attachment" type="bytea"/>
+		<property name="BodyMessage" />
+	</class>
+</hibernate-mapping>
