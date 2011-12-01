@@ -8,7 +8,7 @@ namespace Jigoku.ORM.Repository
 {
     public static class ConfigureRepository
     {
-        public static ISessionFactory SessionFactory { get; set; }
+        public static ISessionFactory SessionFactory { get; private set; }
 
         static ConfigureRepository()
         {
