@@ -39,6 +39,8 @@ CREATE TABLE "PrivateMessage"
   "Topic" character varying(255), -- Тема сообщения
   "Body" text,
   "Attachment" bytea,
+  "DateSend" timestamp with time zone NOT NULL,
+  "DateReceive" timestamp with time zone NOT NULL,
   CONSTRAINT "PrivateMessage_pkey" PRIMARY KEY ("Id"),
   CONSTRAINT "PrivateMessage_IdFrom_fkey" FOREIGN KEY ("IdFrom")
       REFERENCES users (uid) MATCH SIMPLE
