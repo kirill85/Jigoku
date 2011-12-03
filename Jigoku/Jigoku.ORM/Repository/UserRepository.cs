@@ -51,7 +51,7 @@ namespace Jigoku.ORM.Repository
             return null;
         }
 
-        public void AddUser(string nickName, string password, string PrimaryMail, string userPhoto = null)
+        public bool AddUser(string nickName, string password, string PrimaryMail, string userPhoto = null)
         {           
                var newUser = new User();
                newUser.NickName = nickName;
@@ -62,18 +62,16 @@ namespace Jigoku.ORM.Repository
                {
                    using (var transaction = session.BeginTransaction())
                    {
-                      try
-                      {
+                       if(session.Get<User>(newUser) != null)
+                       {
                           session.Save(newUser);
                           users.Add(newUser);
                           transaction.Commit();
-                      }
-                      catch (HibernateException)
-                      {
-                          transaction.Rollback();
-                      }                        
+                          return true;
+                       }
                    }
               }
+              return false;
         }
 
         public void ChangePassword(string userNickname, string oldPassword, string newPassword)
@@ -84,21 +82,14 @@ namespace Jigoku.ORM.Repository
                 {
                     var user = findUserByName(userNickname);
                     var modifyUser = user;
-                    try
+                    if (oldPassword != newPassword)
                     {
-                        if (oldPassword != newPassword)
-                        {
-                            modifyUser.Password = newPassword;
-                        }
-                        session.SaveOrUpdate(modifyUser);
-                        transaction.Commit();
-                        users.Remove(user);
-                        users.Add(modifyUser);
+                        modifyUser.Password = newPassword;
                     }
-                    catch (HibernateException)
-                    {
-                        transaction.Rollback();
-                    }
+                    session.SaveOrUpdate(modifyUser);
+                    transaction.Commit();
+                    users.Remove(user);
+                    users.Add(modifyUser);
                 }
             }
         }

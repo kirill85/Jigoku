@@ -31,75 +31,71 @@ WITH (
 );
 ALTER TABLE contacts OWNER TO xgb_jigoku;
 
-CREATE TABLE commonpm
+CREATE TABLE "PrivateMessage"
 (
-  id serial NOT NULL,
-  userid integer,
-  body text,
-  attachment bytea,
-  topic text NOT NULL DEFAULT 'notopic'::text,
-  CONSTRAINT commonpm_pkey PRIMARY KEY (id)
-)
-WITH (
-  OIDS=FALSE
-);
-ALTER TABLE commonpm OWNER TO xgb_jigoku;
-
-CREATE TABLE privatemessage
-(
-  id serial NOT NULL,
-  outputmessageid integer,
-  inputmessageid integer,
-  CONSTRAINT privatemessage_pkey PRIMARY KEY (id),
-  CONSTRAINT outputmessageid FOREIGN KEY (outputmessageid)
-      REFERENCES privatemessageoutput (id) MATCH SIMPLE
+  "Id" serial NOT NULL,
+  "IdFrom" integer, -- От кого
+  "IdTo" integer, -- Кому
+  "Topic" character varying(255), -- Тема сообщения
+  "Body" text,
+  "Attachment" bytea,
+  CONSTRAINT "PrivateMessage_pkey" PRIMARY KEY ("Id"),
+  CONSTRAINT "PrivateMessage_IdFrom_fkey" FOREIGN KEY ("IdFrom")
+      REFERENCES users (uid) MATCH SIMPLE
       ON UPDATE NO ACTION ON DELETE NO ACTION,
-  CONSTRAINT privatemessage_inputmessageid_fkey FOREIGN KEY (inputmessageid)
-      REFERENCES privatemessageinput (id) MATCH SIMPLE
-      ON UPDATE NO ACTION ON DELETE NO ACTION
-)
-WITH (
-  OIDS=FALSE
-);
-ALTER TABLE privatemessage OWNER TO xgb_jigoku;
-
-CREATE TABLE privatemessageinput
-(
--- Унаследована from table commonpm:  id integer NOT NULL DEFAULT nextval('commonpm_id_seq'::regclass),
--- Унаследована from table commonpm:  userid integer,
--- Унаследована from table commonpm:  body text,
--- Унаследована from table commonpm:  attachment bytea,
--- Унаследована from table commonpm:  topic text NOT NULL DEFAULT 'notopic'::text,
-  datereceivemessage timestamp without time zone NOT NULL,
-  CONSTRAINT privatemessageinput_pkey PRIMARY KEY (id),
-  CONSTRAINT privatemessageinput_userid_fkey FOREIGN KEY (userid)
+  CONSTRAINT "PrivateMessage_IdTo_fkey" FOREIGN KEY ("IdTo")
       REFERENCES users (uid) MATCH SIMPLE
       ON UPDATE NO ACTION ON DELETE NO ACTION
 )
-INHERITS (commonpm)
 WITH (
   OIDS=FALSE
 );
-ALTER TABLE privatemessageinput OWNER TO xgb_jigoku;
+ALTER TABLE "PrivateMessage" OWNER TO xgb_jigoku;
+COMMENT ON COLUMN "PrivateMessage"."IdFrom" IS 'От кого';
+COMMENT ON COLUMN "PrivateMessage"."IdTo" IS 'Кому';
+COMMENT ON COLUMN "PrivateMessage"."Topic" IS 'Тема сообщения';
 
-CREATE TABLE privatemessageoutput
+
+-- Index: "IdxTopic"
+
+-- DROP INDEX "IdxTopic";
+
+CREATE INDEX "IdxTopic"
+  ON "PrivateMessage"
+  USING btree
+  ("Topic", "IdFrom");
+
+CREATE TABLE "Project"
 (
--- Унаследована from table commonpm:  id integer NOT NULL DEFAULT nextval('commonpm_id_seq'::regclass),
--- Унаследована from table commonpm:  userid integer,
--- Унаследована from table commonpm:  body text,
--- Унаследована from table commonpm:  attachment bytea,
--- Унаследована from table commonpm:  topic text NOT NULL DEFAULT 'notopic'::text,
-  datesendingmessage timestamp without time zone NOT NULL,
-  CONSTRAINT privatemessageoutput_pkey PRIMARY KEY (id),
-  CONSTRAINT privatemessageoutput_userid_fkey FOREIGN KEY (userid)
+  "Id" serial NOT NULL,
+  "Name" text NOT NULL,
+  "Description" text NOT NULL,
+  "SiteUrl" character varying(100),
+  "TrackerUrl" character varying(255),
+  CONSTRAINT "Project_pkey" PRIMARY KEY ("Id")
+)
+WITH (
+  OIDS=FALSE
+);
+ALTER TABLE "Project" OWNER TO xgb_jigoku;
+
+CREATE TABLE "User_Project"
+(
+  "Id" serial NOT NULL,
+  "IdUser" integer,
+  "IdProject" integer,
+  CONSTRAINT "User_Project_pkey" PRIMARY KEY ("Id"),
+  CONSTRAINT "User_Project_IdProject_fkey" FOREIGN KEY ("IdProject")
+      REFERENCES "Project" ("Id") MATCH SIMPLE
+      ON UPDATE NO ACTION ON DELETE NO ACTION,
+  CONSTRAINT "User_Project_IdUser_fkey" FOREIGN KEY ("IdUser")
       REFERENCES users (uid) MATCH SIMPLE
       ON UPDATE NO ACTION ON DELETE NO ACTION
 )
-INHERITS (commonpm)
 WITH (
   OIDS=FALSE
 );
-ALTER TABLE privatemessageoutput OWNER TO xgb_jigoku;
+ALTER TABLE "User_Project" OWNER TO xgb_jigoku;
 
 CREATE SEQUENCE "Contacts_Id_seq"
   INCREMENT 1
@@ -117,18 +113,19 @@ CREATE SEQUENCE "Users_Uid_seq"
   CACHE 1;
 ALTER TABLE "Users_Uid_seq" OWNER TO xgb_jigoku;
 
-CREATE SEQUENCE commonpm_id_seq
+CREATE SEQUENCE "Project_Id_seq"
   INCREMENT 1
   MINVALUE 1
   MAXVALUE 9223372036854775807
   START 1
   CACHE 1;
-ALTER TABLE commonpm_id_seq OWNER TO xgb_jigoku;
+ALTER TABLE "Project_Id_seq" OWNER TO xgb_jigoku;
 
-CREATE SEQUENCE privatemessage_id_seq
+CREATE SEQUENCE "User_Project_Id_seq"
   INCREMENT 1
   MINVALUE 1
   MAXVALUE 9223372036854775807
   START 1
   CACHE 1;
-ALTER TABLE privatemessage_id_seq OWNER TO xgb_jigoku;
+ALTER TABLE "User_Project_Id_seq" OWNER TO xgb_jigoku;
+
