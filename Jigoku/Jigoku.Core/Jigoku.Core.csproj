@@ -41,7 +41,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AbstractEntity.cs" />
-    <Compile Include="CommonPM.cs" />
     <Compile Include="Entities\Contacts.cs" />
     <Compile Include="Entities\PrivateMessage.cs" />
     <Compile Include="Entities\User.cs" />
