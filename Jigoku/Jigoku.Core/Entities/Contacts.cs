@@ -7,6 +7,7 @@ namespace Jigoku.Core.Entities
 {
     public class Contacts
     {
+        public virtual int Id { get; set; }
         public User User { get; set; }
         public virtual string Icq { get; set; }
         public virtual string Jid { get; set; }

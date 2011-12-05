@@ -1,11 +1,12 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" assembly="Jogoku.Core" namespace="Jigoku.Core.Entities">
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" assembly="Jigoku.Core" namespace="Jigoku.Core.Entities">
 	<class name="Contacts">
 		<id name="Id" column="Id">
 			<generator class="sequence">
 				<param name="Contacts_Id_seq"/>
 			</generator>
 		</id>
+    <one-to-one name="User" class="User" />
 		<property name="Icq"/>
 		<property name="Jid"/>
 		<property name="MailTo"/>

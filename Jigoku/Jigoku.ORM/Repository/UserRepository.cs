@@ -128,7 +128,7 @@ namespace Jigoku.ORM.Repository
 
         public string GetUserPhoto(int userId)
         {
-
+            return null;
         }
         #endregion
     }
