@@ -11,6 +11,9 @@ namespace Jigoku.Core.Entities
         public virtual IList<User> IdTo { get; set; }
         public virtual IList<User> IdFrom { get; set; }
         public virtual string Topic { get; set; }
-        public virtual 
+        public virtual string Body { get; set; }
+        public virtual byte[] Attachment { get; set; }
+        public virtual DateTime DateSend { get; set; }
+        public virtual DateTime DateReceive { get; set; }
     }
 }

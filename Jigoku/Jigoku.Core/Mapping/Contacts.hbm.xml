@@ -3,7 +3,7 @@
 	<class name="Contacts">
 		<id name="Id" column="Id">
 			<generator class="sequence">
-				<param name="contacts_id_seq"/>
+				<param name="Contacts_Id_seq"/>
 			</generator>
 		</id>
 		<property name="Icq"/>
