@@ -46,6 +46,10 @@ namespace Jigoku
 
         protected void Application_BeginRequest(object sender, EventArgs args)
         {
+            ///<Bug annotation>
+            ///BUG : Object reference not set to an instance of an object.
+            ///Buildable but fails on run.
+            ///</Bug annotation>
             var session = SessionFactory.OpenSession();
             CurrentSessionContext.Bind(session);
         }
