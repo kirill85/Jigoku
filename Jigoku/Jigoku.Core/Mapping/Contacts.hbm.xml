@@ -6,10 +6,12 @@
 				<param name="Contacts_Id_seq"/>
 			</generator>
 		</id>
-    <one-to-one name="User" class="User" />
-		<property name="Icq"/>
+    <many-to-one name="" class="User" />
+    <property name="type" />
+    <property name="value" />
+		<!--property name="Icq"/>
 		<property name="Jid"/>
 		<property name="MailTo"/>
-		<property name="Msn"/>
+		<property name="Msn"/-->
 	</class>
 </hibernate-mapping>
