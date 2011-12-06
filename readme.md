@@ -1,7 +1,4 @@
-Ugoku no naraba ugoku no naraba subete kowasuwa subete kowasuwa
-Kanashimu naraba kanashimu naraba watashi no kokoro shiroku kawareru?
-Anata no koto mo watashi no koto mo subete no koto mo mada shiranai no
-Omoi mabuta wo aketa no naraba subete kowasu no nara kuro ni nare!!!
+Workflowy : https://workflowy.com/shared/fc4513e7-88a5-a401-a669-9325b8977b3f/#
 
 
 Licensed under [AGPL3](http://www.gnu.org/licenses/agpl-3.0-standalone.html)
