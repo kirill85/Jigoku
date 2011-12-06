@@ -3,7 +3,7 @@ using NHibernate;
 
 namespace Jigoku.ORM.Repository
 {
-    public class ContactsRepository
+    public class ContactsRepository : ICrudOperations<Contacts>
     {
         public void Add(Contacts contacts)
         {
