@@ -60,6 +60,7 @@
     <Compile Include="Npgsql\DLExecute.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repository\ConfigureRepository.cs" />
+    <Compile Include="Repository\ContactsRepository.cs" />
     <Compile Include="Repository\DuplicateValueException.cs" />
     <Compile Include="Repository\UserRepository.cs" />
   </ItemGroup>

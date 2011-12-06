@@ -6,6 +6,7 @@
 				<param name="Contacts_Id_seq"/>
 			</generator>
 		</id>
+    <one-to-one name="User" class="User" />
 		<property name="Icq"/>
 		<property name="Jid"/>
 		<property name="MailTo"/>
