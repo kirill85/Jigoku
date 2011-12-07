@@ -1,4 +1,6 @@
-﻿CREATE TABLE users
+create type "ContactType" as enum('ICQ', 'JID', 'MAILTO', 'MSN'); -- 0 - Icq, 1 - JID, 2- MailTo, 3 - MSN
+
+CREATE TABLE users
 (
   uid integer NOT NULL DEFAULT nextval('"Users_Uid_seq"'::regclass),
   nickname text NOT NULL,
@@ -17,10 +19,6 @@ CREATE TABLE contacts
 (
   id integer NOT NULL DEFAULT nextval('"Contacts_Id_seq"'::regclass),
   userid integer NOT NULL,
-  icq text,
-  jid text,
-  mailto text,
-  msn text,
   CONSTRAINT "Contacts_pkey" PRIMARY KEY (id),
   CONSTRAINT "Contacts_UserId_fkey" FOREIGN KEY (userid)
       REFERENCES users (uid) MATCH SIMPLE
@@ -30,6 +28,8 @@ WITH (
   OIDS=FALSE
 );
 ALTER TABLE contacts OWNER TO xgb_jigoku;
+ALTER TABLE contacts ADD COLUMN "Contact_Type" "ContactType";
+ALTER TABLE contacts ADD COLUMN "Value" character varying(100);
 
 CREATE TABLE "PrivateMessage"
 (
