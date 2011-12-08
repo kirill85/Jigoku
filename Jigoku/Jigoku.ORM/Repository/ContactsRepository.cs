@@ -1,4 +1,5 @@
-﻿using Jigoku.Core.Entities;
+﻿using System;
+using Jigoku.Core.Entities;
 using NHibernate;
 
 namespace Jigoku.ORM.Repository
@@ -7,38 +8,48 @@ namespace Jigoku.ORM.Repository
     {
         public void Add(Contacts contacts)
         {
-            using (ISession session = ConfigureRepository.SessionFactory.OpenSession())
+            using (ISession s1 = ConfigureRepository.SessionFactory.OpenSession())
             {
-                using (ITransaction transaction = session.BeginTransaction())
+                using (ITransaction transaction = s1.BeginTransaction())
                 {
-                    session.Save(contacts);
-                    transaction.Commit();
+                    using (ISession s2 = ConfigureRepository.SessionFactory.OpenSession())
+                        if (s2.Get<Contacts>(contacts.Uid) == null)
+                        {
+                            s1.Save(contacts);
+                            transaction.Commit();
+                        }
                 }
             }
         }
 
         public void Update(Contacts contacts)
         {
-            using (ISession session = ConfigureRepository.SessionFactory.OpenSession())
+            using (ISession s1 = ConfigureRepository.SessionFactory.OpenSession())
             {
-                using (ITransaction transaction = session.BeginTransaction())
+                using (ITransaction transaction = s1.BeginTransaction())
                 {
-
-                    session.Update(contacts);
-                    transaction.Commit();
-
+                    using (ISession s2 = ConfigureRepository.SessionFactory.OpenSession())
+                        if (s2.Get<Contacts>(contacts.Uid) != null)
+                        {
+                            s1.Update(contacts);
+                            transaction.Commit();
+                        }
                 }
             }
         }
 
         public void Remove(Contacts contacts)
         {
-            using (ISession session = ConfigureRepository.SessionFactory.OpenSession())
+            using (ISession s1 = ConfigureRepository.SessionFactory.OpenSession())
             {
-                using (ITransaction transaction = session.BeginTransaction())
+                using (ITransaction transaction = s1.BeginTransaction())
                 {
-                    session.Delete(contacts);
-                    transaction.Commit();
+                    using (ISession s2 = ConfigureRepository.SessionFactory.OpenSession())
+                        if (s2.Get<Contacts>(contacts.Uid) != null)
+                        {
+                            s1.Delete(contacts);
+                            transaction.Commit();
+                        }
                 }
             }
         }
