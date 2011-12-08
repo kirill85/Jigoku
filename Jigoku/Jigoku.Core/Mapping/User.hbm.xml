@@ -7,14 +7,14 @@
 				<param name="Users_Uid_seq"/>
 			</generator>
 		</id>
-		<property name="NickName" type="text" not-null="true"/>
-		<property name="Password" type="text" not-null="true"/>
-		<property name="PrimaryMail" type="text" column="email" not-null="true"/>
+		<property name="NickName" type="String" not-null="true"/>
+		<property name="Password" type="String" not-null="true"/>
+		<property name="PrimaryMail" type="String" column="email" not-null="true"/>
 		<property name="UserPhoto"/>
-		<list name="Contacts" cascade="all-delete-orphans">
+		<list name="Contacts" cascade="all" inverse="true">
 			<key column="UserId" on-delete="cascade"/>
 			<index column="Id"/>
-			<one-to-many class="Contacts"/>
+			<one-to-many class="Contacts" />
 		</list>
 	</class>
 </hibernate-mapping>

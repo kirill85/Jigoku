@@ -15,13 +15,8 @@ namespace Jigoku.Core.Entities
 
     public class Contacts : AbstractEntity
     {
-        /*
-        public virtual string Icq { get; set; }
-        public virtual string Jid { get; set; }
-        public virtual string Msn { get; set; }
-        public virtual string MailTo { get; set; }
-         */
-        public virtual ContactType type { get; set; }
-        public virtual string value { get; set; }
+        public virtual User Owner { get; set; }
+        public virtual ContactType Contact_Type { get; set; }
+        public virtual string Value { get; set; }
     }
 }

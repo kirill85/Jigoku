@@ -8,6 +8,6 @@ namespace Jigoku.Core.Entities
         public virtual string Password { get; set; }
         public virtual string PrimaryMail { get; set; }
         public virtual string UserPhoto { get; set; }
-        public IList<Contacts> Contacts { get; set; }
+        public virtual IList<Contacts> Contacts { get; set; }
     }
 }

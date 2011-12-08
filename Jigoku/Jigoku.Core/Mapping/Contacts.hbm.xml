@@ -1,17 +1,13 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" assembly="Jigoku.Core" namespace="Jigoku.Core.Entities">
 	<class name="Contacts">
-		<id name="Id" column="Id">
+		<id name="Uid" column="Id">
 			<generator class="sequence">
 				<param name="Contacts_Id_seq"/>
 			</generator>
 		</id>
-    <many-to-one name="" class="User" />
-    <property name="type" />
-    <property name="value" />
-		<!--property name="Icq"/>
-		<property name="Jid"/>
-		<property name="MailTo"/>
-		<property name="Msn"/-->
+    <many-to-one name="Owner" class="User" not-null="true" />
+    <property name="Contact_Type" not-null="true" />
+    <property name="Value" not-null="true" />
 	</class>
 </hibernate-mapping>
