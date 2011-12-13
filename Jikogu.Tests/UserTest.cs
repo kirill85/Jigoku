@@ -30,7 +30,7 @@ namespace Jikogu.Tests
             TestHelper.log("Searching for John Doe");
             try
             {
-                User John = repository.Users.Where(x => x.PrimaryMail == "john@doe.foo").FirstOrDefault();
+                Person John = repository.Users.Where(x => x.PrimaryMail == "john@doe.foo").FirstOrDefault();
                 if (John == null)
                 {
                     TestHelper.error("John is not in database, problems Nhibernate ?");
@@ -50,7 +50,7 @@ namespace Jikogu.Tests
             TestHelper.log("Deleting test user John Doe");
             try
             {
-                User stubUser = new User { NickName = "John", Password = "Doe", PrimaryMail = "john@doe.foo", UserPhoto = null, Contacts = null };
+                Person stubUser = new Person { NickName = "John", Password = "Doe", PrimaryMail = "john@doe.foo", UserPhoto = null, Contacts = null };
                 //repository.DeleteUser("John");
                 Assert.IsTrue(!repository.Users.Contains(stubUser));
                 TestHelper.done();
@@ -63,7 +63,7 @@ namespace Jikogu.Tests
             TestHelper.log("Searching for John Doe");
             try
             {
-                User John = repository.Users.Where(x => x.PrimaryMail == "john@doe.foo").FirstOrDefault();
+                Person John = repository.Users.Where(x => x.PrimaryMail == "john@doe.foo").FirstOrDefault();
                 Assert.IsNull(John);
                 TestHelper.done();
             }

@@ -40,19 +40,36 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AbstractEntity.cs" />
+    <Compile Include="ContactType.cs" />
     <Compile Include="Entities\Contacts.cs" />
     <Compile Include="Entities\PrivateMessage.cs" />
-    <Compile Include="Entities\User.cs" />
+    <Compile Include="Entities\Project.cs" />
+    <Compile Include="Entities\Person.cs" />
+    <Compile Include="Entities\UserProject.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Mapping\User.hbm.xml">
+    <EmbeddedResource Include="Mapping\Person.hbm.xml">
       <SubType>Designer</SubType>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Mapping\Contacts.hbm.xml" />
+    <EmbeddedResource Include="Mapping\Contacts.hbm.xml">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Mapping\Project.hbm.xml">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Mapping\PrivateMessage.hbm.xml">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Mapping\UserProject.hbm.xml" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
