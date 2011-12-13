@@ -10,7 +10,7 @@ namespace Jigoku.Core.Entities
         public virtual string PrimaryMail { get; set; }
         public virtual string UserPhoto { get; set; }
         public virtual IList<Contacts> Contacts { get; set; }
-        public virtual ISet<Project> Projects { get; set; }
-        public virtual IList<PrivateMessage> Messages { get; set; }
+        public virtual ISet<Project> Project { get; set; }
+        public virtual IList<PrivateMessage> PrivateMessage { get; set; }
     }
 }

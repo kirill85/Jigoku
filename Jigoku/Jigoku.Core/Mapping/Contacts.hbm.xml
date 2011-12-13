@@ -6,8 +6,8 @@
 				<param name="Contacts_Id_seq"/>
 			</generator>
 		</id>
-		<property name="Contact_Type" column="Contact_Type" type="ContactType" not-null="true"/>
-		<property name="ContactValue" column="ContactValue" type="String"/>
-		<property name="PersonId" column="PersonId"/>
+		<property name="Contact_Type" column="Contact_Type" not-null="true"/>
+		<property name="ContactValue" column="ContactValue" />
+		
 	</class>
 </hibernate-mapping>

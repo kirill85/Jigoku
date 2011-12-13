@@ -7,23 +7,19 @@
 				<param name="sequence">Person_Id_seq</param>
 			</generator>
 		</id>
-		<property name="NickName" type="text" not-null="true"/>
-		<property name="Password" column="Passwd" type="text" not-null="true"/>
-		<property name="PrimaryMail" type="text" column="email" not-null="true"/>
-		<property name="UserPhoto" type="text"/>
-		<list name="Contacts" cascade="all-delete-orphans">
+		<property name="NickName" not-null="true"/>
+		<property name="Password" column="Passwd" not-null="true"/>
+		<property name="PrimaryMail" column="email" not-null="true"/>
+		<property name="UserPhoto" />
+		<list name="Contacts" cascade="all" inverse="true">
 			<key column="Id" on-delete="cascade"/>
 			<index column="PersonId"/>
 			<one-to-many class="Contacts"/>
-		</list>
-		<list name="PrivateMessage" cascade="all-delete-orphans">
-			<key column="Id" on-delete="noaction"/>
-			<index column="MessageId"/>
-			<one-to-many class="PrivateMessage"/>
 		</list>
 		<set name="Project" table="Person_Project" cascade="all">
 			<key column="PersonId"/>
 			<many-to-many column="ProjectId" class="Project"/>
 		</set>
+		<many-to-one name="IdTo" class="Person"/>
 	</class>
 </hibernate-mapping>

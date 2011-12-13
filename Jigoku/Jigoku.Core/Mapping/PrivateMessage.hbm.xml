@@ -6,11 +6,13 @@
 				<param name="sequence">PrivateMessage_Id_seq</param>
 			</generator>
 		</id>
-		<property name="Topic" column="Topic" type="String"/>
-		<property name="Body" column="Body" type="String"/>
-		<property name="Attachment" column="Attachment" type="byte[]"/>
+		<property name="Topic" column="Topic"/>
+		<property name="Body" column="Body" />
+		<property name="Attachment" column="Attachment" type="BinaryBlob"/>
 		<property name="DateSend" column="DateSend" type="DateTime" not-null="true"/>
 		<property name="DateReceive" column="DateReceive" type="DateTime" not-null="true"/>
-		<property name="IdTo" column="IdTo" not-null="true"/>
+		<many-to-one name="Person" cascade="none" class="Person">
+			<column name="PersonId"/>
+		</many-to-one>
 	</class>
 </hibernate-mapping>
