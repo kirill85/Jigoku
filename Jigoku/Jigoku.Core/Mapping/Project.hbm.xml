@@ -1,9 +1,9 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" namespace="Jigoku.Core.Entities" assembly="Jigoku.Core">
 	<class name="Project" table="Project">
-		<id name="Id" column="Id">
+		<id name="ProjectId" column="ProjectId">
 			<generator class="sequence">
-				<param name="sequence">Project_Id_seq</param>
+				<param name="sequence">Project_ProjectId_seq</param>
 			</generator>
 		</id>
 		<property name="Name" column="Name" not-null="true"/>

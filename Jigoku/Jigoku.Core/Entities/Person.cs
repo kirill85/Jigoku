@@ -8,9 +8,6 @@ namespace Jigoku.Core.Entities
         public virtual string NickName { get; set; }
         public virtual string Password { get; set; }
         public virtual string PrimaryMail { get; set; }
-        public virtual string UserPhoto { get; set; }
-        public virtual IList<Contacts> Contacts { get; set; }
-        public virtual ISet<Project> Project { get; set; }
-        public virtual IList<PrivateMessage> PrivateMessage { get; set; }
+        public virtual string UserPhoto { get; set; }//URL gravatar 
     }
 }

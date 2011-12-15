@@ -8,11 +8,14 @@
 		</id>
 		<property name="Topic" column="Topic"/>
 		<property name="Body" column="Body" />
-		<property name="Attachment" column="Attachment" type="BinaryBlob"/>
-		<property name="DateSend" column="DateSend" type="DateTime" not-null="true"/>
-		<property name="DateReceive" column="DateReceive" type="DateTime" not-null="true"/>
-		<many-to-one name="Person" cascade="none" class="Person">
-			<column name="PersonId"/>
+		<property name="Attachment" column="Attachment"/>
+		<property name="DateSend" not-null="true"/>
+		<property name="DateReceive" not-null="true"/>
+		<many-to-one name="PersonFrom" cascade="all" class="Person">
+			<column name="PersonFrom"/>
+		</many-to-one>
+		<many-to-one name="PersonTo" cascade="all" class="Person">
+			<column name="PersonTo"/>
 		</many-to-one>
 	</class>
 </hibernate-mapping>
