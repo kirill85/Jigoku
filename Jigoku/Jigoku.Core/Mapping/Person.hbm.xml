@@ -1,25 +1,18 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" assembly="Jigoku.Core" namespace="Jigoku.Core.Entities">
 	<class name="Person">
-		<id name="Id">
-			<column name="Id"/>
+		<id name="Id" column="Id">
 			<generator class="sequence">
 				<param name="sequence">Person_Id_seq</param>
 			</generator>
 		</id>
-		<property name="NickName" not-null="true"/>
-		<property name="Password" column="Passwd" not-null="true"/>
-		<property name="PrimaryMail" column="email" not-null="true"/>
-		<property name="UserPhoto" />
-		<list name="Contacts" cascade="all" inverse="true">
-			<key column="Id" on-delete="cascade"/>
-			<index column="PersonId"/>
-			<one-to-many class="Contacts"/>
-		</list>
-		<set name="Project" table="Person_Project" cascade="all">
-			<key column="PersonId"/>
+		<property name="NickName" column="NickName" length="32" not-null="true" unique="true" index="PersName"/>
+		<property name="Password" column="passwd" length="32" not-null="true"/>
+		<property name="PrimaryMail" column="PrimaryMail" not-null="true"/>
+		<property name="UserPhoto" column="UserPhoto"/>
+		<set name="Projects" cascade="all" table="Person_Project">
+			<key column="Id"/>
 			<many-to-many column="ProjectId" class="Project"/>
 		</set>
-		<many-to-one name="IdTo" class="Person"/>
 	</class>
 </hibernate-mapping>

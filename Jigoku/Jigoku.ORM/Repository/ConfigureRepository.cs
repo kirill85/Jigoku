@@ -14,7 +14,6 @@ namespace Jigoku.ORM.Repository
             {
                 var nhConfig = new Configuration().Configure();
                 SessionFactory = nhConfig.BuildSessionFactory();
-                //nhConfig.AddAssembly("Jigoku.Core");
                 new SchemaExport(nhConfig).Execute(false, true, false);
             }
         }
