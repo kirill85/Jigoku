@@ -11,11 +11,8 @@ namespace Jigoku.ORM.Repository
             {
                 using (ITransaction transaction = session.BeginTransaction())
                 {
-                    if (session.Get<Contacts>(contacts.Id) == null)
-                    {
-                        session.Save(contacts);
-                        transaction.Commit();
-                    }
+                    session.Save(contacts);
+                    transaction.Commit();
                 }
             }
         }
@@ -26,11 +23,8 @@ namespace Jigoku.ORM.Repository
             {
                 using (ITransaction transaction = session.BeginTransaction())
                 {
-                    if (session.Get<Contacts>(contacts.Id) != null)
-                    {
-                        session.Update(contacts);
-                        transaction.Commit();
-                    }
+                    session.Update(contacts);
+                    transaction.Commit();
                 }
             }
         }
@@ -41,11 +35,8 @@ namespace Jigoku.ORM.Repository
             {
                 using (ITransaction transaction = session.BeginTransaction())
                 {
-                    if (session.Get<Contacts>(contacts.Id) != null)
-                    {
-                        session.Delete(contacts);
-                        transaction.Commit();
-                    }
+                    session.Delete(contacts);
+                    transaction.Commit();
                 }
             }
         }
