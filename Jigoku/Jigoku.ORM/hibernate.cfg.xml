@@ -8,10 +8,12 @@
 			NHibernate.Dialect.PostgreSQLDialect, NHibernate
 		</property>
 		<property name="connection.connection_string">
-			Server=postgres44.1gb.ru;Port=5432;User Id=xgb_jigoku;Password=85849e82;Database=xgb_jigoku;CommandTimeout=100;
+			<!--Server=postgres44.1gb.ru;Port=5432;User Id=xgb_jigoku;Password=85849e82;Database=xgb_jigoku;CommandTimeout=100;-->
+			Server=127.0.0.1; Port=5432; Database=xgb_jigoku; User Id=postgres; Password=postgres; 
 		</property>
 		<property name="current_session_context_class">
-			web
+			<!--web-->
+			thread
 		</property>
 		<mapping assembly="Jigoku.Core"/>
 	</session-factory>

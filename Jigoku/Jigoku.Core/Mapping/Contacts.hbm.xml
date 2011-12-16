@@ -6,8 +6,14 @@
 				<param name="Contacts_Id_seq"/>
 			</generator>
 		</id>
+<<<<<<< HEAD
     <many-to-one name="Owner" class="User" not-null="true" />
     <property name="Contact_Type" not-null="true" />
     <property name="Value" not-null="true" />
+=======
+		<property name="Contact_Type" column="Contact_Type" type="ContactType" not-null="true"/>
+		<property name="ContactValue" column="ContactValue" type="String"/>
+		<property name="PersonId" column="PersonId"/>
+>>>>>>> f2ffab1
 	</class>
 </hibernate-mapping>
