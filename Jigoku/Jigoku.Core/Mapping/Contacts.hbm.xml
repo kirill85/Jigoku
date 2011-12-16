@@ -7,7 +7,7 @@
 			</generator>
 		</id>
 		<property name="Contact_Type" />
-		<property name="ContactInfo" />
+		<property name="ContactValue" />
 		<many-to-one name="Person_Contacts" cascade="all" class="Person">
 			<column name="Person_Contacts"/>
 		</many-to-one>
