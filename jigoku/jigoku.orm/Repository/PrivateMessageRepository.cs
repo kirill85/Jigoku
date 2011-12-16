@@ -1,6 +1,8 @@
 ﻿using Jigoku.Core.Entities;
 using NHibernate;
 using System;
+using NHibernate.Criterion;
+using System.Collections.Generic;
 
 namespace Jigoku.ORM.Repository
 {
@@ -26,19 +28,15 @@ namespace Jigoku.ORM.Repository
         {
             using (ITransaction transaction = session.BeginTransaction())
             {
-                using (ISession check = ConfigureRepository.SessionFactory.OpenSession())
+                if (message != null)
                 {
-                    if (check.Get<PrivateMessage>(message.Id) != null)
-                    {
-                        session.Update(message);
-                        transaction.Commit();
-                    }
-                    else
-                    {
-                        var exception = new EntityDoesNotExistException(
-                            String.Format("Message: ID={0}, does not exists in base", message.Id));
-                        throw exception;
-                    }
+                    session.Update(message);
+                    transaction.Commit();
+                }
+                else
+                {
+                    throw new EntityDoesNotExistException(
+                        String.Format("Message: ID={0}, does not exists in base", message.Id));
                 }
             }
 
@@ -48,26 +46,36 @@ namespace Jigoku.ORM.Repository
         {
             using (ITransaction transaction = session.BeginTransaction())
             {
-                using (ISession check = ConfigureRepository.SessionFactory.OpenSession())
-                {
-                    if (check.Get<PrivateMessage>(message.Id) != null)
+                    if (message != null)
                     {
                         session.Delete(message);
                         transaction.Commit();
                     }
                     else
                     {
-                        var exception = new EntityDoesNotExistException(
+                        throw new EntityDoesNotExistException(
                             String.Format("Message: ID={0}, does not exists in base", message.Id));
-                        throw exception;
                     }
-                }
             }
         }
 
         public PrivateMessage GetById(int id)
         {
             return session.Get<PrivateMessage>(id);
+        }
+
+        public IList<PrivateMessage> GetBySender(Person sender)
+        {
+            return session.QueryOver<PrivateMessage>()
+                          .Where(x => x.PersonFrom.Id == sender.Id)
+                          .List();
+        }
+
+        public IList<PrivateMessage> GetByReceiver(Person receiver)
+        {
+            return session.QueryOver<PrivateMessage>()
+                          .Where(x => x.PersonTo.Id == receiver.Id)
+                          .List();
         }
 
         public void Dispose()
