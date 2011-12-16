@@ -6,7 +6,7 @@ using Jigoku.ORM.Repository;
 using Jigoku.Core.Entities;
 using Jigoku.Tests;
 
-namespace Jigoku.Tests
+namespace Jikogu.Tests
 {
     [TestFixture]
     public class UserTest
