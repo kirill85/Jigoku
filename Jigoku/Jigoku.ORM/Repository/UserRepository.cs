@@ -22,21 +22,6 @@ namespace Jigoku.ORM.Repository
             users = new List<Person>();
         }
 
-        private bool IsDuplicateNickname(string nickName)
-        {
-            int nickCount = 0;
-            using (var session = ConfigureRepository.SessionFactory.OpenSession())
-            {
-                nickCount = session.QueryOver<Person>().Where(m => m.NickName == nickName).RowCount();
-            }
-            return (nickCount > 0);
-        }
-
-        private bool IsExistUser(string nickName)
-        {
-            return IsDuplicateNickname(nickName);
-        }
-
         private Person findUserByName(string nickname)
         {
             foreach (var user in users)
