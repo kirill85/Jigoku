@@ -1,15 +1,27 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" assembly="Jigoku.Core" namespace="Jigoku.Core.Entities">
 	<class name="Contacts">
-		<id name="Id" column="Id">
+		<id name="Uid" column="Id">
 			<generator class="sequence">
 				<param name="sequence">Contacts_Id_seq</param>
 			</generator>
 		</id>
+<<<<<<< HEAD
 		<property name="Contact_Type" />
 		<property name="ContactValue" />
 		<many-to-one name="Person_Contacts" cascade="all" class="Person">
 			<column name="Person_Contacts"/>
 		</many-to-one>
+=======
+<<<<<<< HEAD
+    <many-to-one name="Owner" class="User" not-null="true" />
+    <property name="Contact_Type" not-null="true" />
+    <property name="Value" not-null="true" />
+=======
+		<property name="Contact_Type" column="Contact_Type" type="ContactType" not-null="true"/>
+		<property name="ContactValue" column="ContactValue" type="String"/>
+		<property name="PersonId" column="PersonId"/>
+>>>>>>> f2ffab1
+>>>>>>> 788686b3eeaa9cde891be557deff6020a2976a00
 	</class>
 </hibernate-mapping>

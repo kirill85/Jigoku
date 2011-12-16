@@ -56,10 +56,27 @@
     <EmbeddedResource Include="Mapping\Contacts.hbm.xml">
       <SubType>Designer</SubType>
     </EmbeddedResource>
+<<<<<<< HEAD
+=======
   </ItemGroup>
   <ItemGroup>
+<<<<<<< HEAD
     <EmbeddedResource Include="Mapping\PrivateMessage.hbm.xml" />
     <EmbeddedResource Include="Mapping\Project.hbm.xml" />
+=======
+    <EmbeddedResource Include="Mapping\Project.hbm.xml">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Mapping\PrivateMessage.hbm.xml">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Mapping\UserProject.hbm.xml" />
+>>>>>>> f2ffab1
+>>>>>>> 788686b3eeaa9cde891be557deff6020a2976a00
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
