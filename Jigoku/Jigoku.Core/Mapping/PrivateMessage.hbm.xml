@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" namespace="Jigoku.Core.Entities" assembly="Jigoku.Core">
+	<class name="PrivateMessage" table="PrivateMessage">
+		<id column="Id" name="Id">
+			<generator class="sequence">
+				<param name="sequence">PrivateMessage_Id_seq</param>
+			</generator>
+		</id>
+		<property name="Topic" column="Topic"/>
+		<property name="Body" column="Body" />
+		<property name="Attachment" column="Attachment"/>
+		<property name="DateSend" not-null="true"/>
+		<property name="DateReceive" not-null="true"/>
+		<many-to-one name="PersonFrom" cascade="all" class="Person">
+			<column name="PersonFrom"/>
+		</many-to-one>
+		<many-to-one name="PersonTo" cascade="all" class="Person">
+			<column name="PersonTo"/>
+		</many-to-one>
+	</class>
+</hibernate-mapping>

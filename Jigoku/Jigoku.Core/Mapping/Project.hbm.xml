@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" namespace="Jigoku.Core.Entities" assembly="Jigoku.Core">
+	<class name="Project" table="Project">
+		<id name="ProjectId" column="ProjectId">
+			<generator class="sequence">
+				<param name="sequence">Project_ProjectId_seq</param>
+			</generator>
+		</id>
+		<property name="Name" column="Name" not-null="true"/>
+		<property name="Description" column="Description"/>
+		<property name="SiteUrl" column="SiteUrl" length="100"/>
+		<property name="TrackerUrl" column="TrackerUrl"/>
+		<property name="License" column="License" not-null="true" length="255"/>
+		<property name="Tags" column="Tags" length="255"/>
+	</class>
+</hibernate-mapping>
