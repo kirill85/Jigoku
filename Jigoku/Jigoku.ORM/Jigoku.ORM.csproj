@@ -43,6 +43,9 @@
     <Reference Include="NHibernate.ByteCode.Castle">
       <HintPath>..\..\Libs\Fluent NHibernate\NHibernate.ByteCode.Castle.dll</HintPath>
     </Reference>
+    <Reference Include="NHibernate.Mapping.Attributes">
+      <HintPath>..\..\Libs\NHibernate.Mapping.Attributes.dll</HintPath>
+    </Reference>
     <Reference Include="Npgsql">
       <HintPath>..\..\Libs\Npgsql.dll</HintPath>
     </Reference>
@@ -56,9 +59,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Repository\AbstractInterface\IUser.cs" />
     <Compile Include="Npgsql\DLConnection.cs" />
     <Compile Include="Npgsql\DLExecute.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repository\AbstractInterface\IUserInfo.cs" />
     <Compile Include="Repository\ConfigureRepository.cs" />
     <Compile Include="Repository\ContactsRepository.cs" />
     <Compile Include="Repository\DuplicateValueException.cs" />

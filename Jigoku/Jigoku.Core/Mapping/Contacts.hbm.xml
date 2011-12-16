@@ -3,13 +3,13 @@
 	<class name="Contacts">
 		<id name="Id" column="Id">
 			<generator class="sequence">
-				<param name="Contacts_Id_seq"/>
+				<param name="sequence">Contacts_Id_seq</param>
 			</generator>
 		</id>
-    <one-to-one name="User" class="User" />
-		<property name="Icq"/>
-		<property name="Jid"/>
-		<property name="MailTo"/>
-		<property name="Msn"/>
+		<property name="Contact_Type" />
+		<property name="ContactInfo" />
+		<many-to-one name="Person_Contacts" cascade="all" class="Person">
+			<column name="Person_Contacts"/>
+		</many-to-one>
 	</class>
 </hibernate-mapping>

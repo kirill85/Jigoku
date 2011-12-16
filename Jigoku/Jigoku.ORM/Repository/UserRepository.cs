@@ -7,9 +7,9 @@ namespace Jigoku.ORM.Repository
 {
     public class UserRepository
     {
-        private List<User> users;
+        private List<Person> users;
 
-        public List<User> Users
+        public List<Person> Users
         {
             get
             {
@@ -19,8 +19,7 @@ namespace Jigoku.ORM.Repository
 
         public UserRepository()
         {
-            users = new List<User>();
-            //ConfigureRepository.ConfigureRepository();
+            users = new List<Person>();
         }
 
         private bool IsDuplicateNickname(string nickName)
@@ -28,7 +27,7 @@ namespace Jigoku.ORM.Repository
             int nickCount = 0;
             using (var session = ConfigureRepository.SessionFactory.OpenSession())
             {
-                nickCount = session.QueryOver<User>().Where(m => m.NickName == nickName).RowCount();
+                nickCount = session.QueryOver<Person>().Where(m => m.NickName == nickName).RowCount();
             }
             return (nickCount > 0);
         }
@@ -38,7 +37,7 @@ namespace Jigoku.ORM.Repository
             return IsDuplicateNickname(nickName);
         }
 
-        private User findUserByName(string nickname)
+        private Person findUserByName(string nickname)
         {
             foreach (var user in users)
             {
@@ -53,7 +52,7 @@ namespace Jigoku.ORM.Repository
 
         public bool AddUser(string nickName, string password, string PrimaryMail, string userPhoto = null)
         {           
-               var newUser = new User();
+               var newUser = new Person();
                newUser.NickName = nickName;
                newUser.Password = password;
                newUser.PrimaryMail = PrimaryMail;
@@ -62,7 +61,7 @@ namespace Jigoku.ORM.Repository
                {
                    using (var transaction = session.BeginTransaction())
                    {
-                       if(session.Get<User>(newUser) != null)
+                       if(session.Get<Person>(newUser) != null)
                        {
                           session.Save(newUser);
                           users.Add(newUser);
@@ -114,12 +113,12 @@ namespace Jigoku.ORM.Repository
         #region UserInfo
         public string GetUserNickname(int userId)
         {
-            User user = null;
+            Person user = null;
             using (var sx = ConfigureRepository.SessionFactory.GetCurrentSession())
             {
                 using (var tx = sx.BeginTransaction())
                 {
-                    user = sx.Get<User>(userId);
+                    user = sx.Get<Person>(userId);
                     tx.Commit();
                 }
             }
