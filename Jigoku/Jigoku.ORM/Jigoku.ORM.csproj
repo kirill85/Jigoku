@@ -65,6 +65,7 @@
     <Compile Include="Repository\ConfigureRepository.cs" />
     <Compile Include="Repository\ContactsRepository.cs" />
     <Compile Include="Repository\DuplicateValueException.cs" />
+    <Compile Include="Repository\Exceptions.cs" />
     <Compile Include="Repository\PrivateMessageRepository.cs" />
     <Compile Include="Repository\UserRepository.cs" />
   </ItemGroup>
