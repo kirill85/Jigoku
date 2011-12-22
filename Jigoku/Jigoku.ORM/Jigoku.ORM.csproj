@@ -69,6 +69,7 @@
     <Compile Include="Repository\Exceptions.cs" />
     <Compile Include="Repository\PrivateMessageRepository.cs" />
     <Compile Include="Repository\PersonRepository.cs" />
+    <Compile Include="Repository\ProjectRepository.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Jigoku.Core\Jigoku.Core.csproj">

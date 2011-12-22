@@ -10,7 +10,7 @@ using System.Collections.Generic;
 namespace Jikogu.Tests
 {
     [TestFixture]
-    public class UserTest
+    public class PersonTest
     {
         PersonRepository repository = new PersonRepository();
         Person testPerson = null;
@@ -30,11 +30,18 @@ namespace Jikogu.Tests
             TestHelper.log("Searching for John Doe");
             Person John = repository.GetById(testPerson.Id);
             if (John == null)
-                {
-                    TestHelper.error("John is not in database, problems Nhibernate ?");
-                }
+            {
+                TestHelper.error("John is not in database, problems Nhibernate ?");
+            }
              Assert.IsNotNull(John);
              TestHelper.done();
+        }
+
+        [Test]
+        public void UpdateStubUser()
+        {
+            testPerson.Password = "111";
+            repository.Update(testPerson);
         }
 
         [Test]
