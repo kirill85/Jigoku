@@ -2,10 +2,11 @@
 using NHibernate;
 using System;
 using System.Collections.Generic;
+using Jigoku.ORM.Repository.AbstractInterface;
 
 namespace Jigoku.ORM.Repository
 {
-    public class ContactsRepository : IDisposable
+    public class ContactsRepository : IEntityRepository<Contacts>
     {
         ISession session;
 
@@ -57,9 +58,9 @@ namespace Jigoku.ORM.Repository
             }
         }
 
-        public Contacts GetById(int id)
+        public Contacts GetById(int Id)
         {
-            return session.Get<Contacts>(id);
+            return session.Get<Contacts>(Id);
         }
 
         public IList<Contacts> GetByPerson(Person person)

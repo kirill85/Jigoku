@@ -5,72 +5,50 @@ using NUnit.Framework;
 using Jigoku.ORM.Repository;
 using Jigoku.Core.Entities;
 using Jigoku.Tests;
+using System.Collections.Generic;
 
 namespace Jikogu.Tests
 {
     [TestFixture]
     public class UserTest
     {
-        UserRepository repository = new UserRepository();
+        PersonRepository repository = new PersonRepository();
+        Person testPerson = null;
+        [SetUp]
+        public void SetUpTestUser()
+        {
+            testPerson = new Person { NickName = "John Doe" + DateTime.Now.Ticks.ToString(), Password = DateTime.Now.Ticks.ToString(), PrimaryMail = "foo@bar.to", Projects = null, UserPhoto = null };
+        }
+
         [Test]
         public void AddStubUser()
         {
             TestHelper.log("Adding test user John Doe");
-            try
-            {
-                repository.AddUser("John", "Doe", "john@doe.foo");
-                Assert.IsNotNull(repository);
-                TestHelper.done();
-            }
-            catch (Exception e)
-            {
-                TestHelper.error(e.Message);
-            }
+            
+            repository.Add(testPerson);
 
             TestHelper.log("Searching for John Doe");
-            try
-            {
-                Person John = repository.Users.Where(x => x.PrimaryMail == "john@doe.foo").FirstOrDefault();
-                if (John == null)
+            Person John = repository.GetById(testPerson.Id);
+            if (John == null)
                 {
                     TestHelper.error("John is not in database, problems Nhibernate ?");
                 }
-                Assert.IsNotNull(John);
-                TestHelper.done();
-            }
-            catch (Exception e)
-            {
-                TestHelper.error(e.Message);
-            }
+             Assert.IsNotNull(John);
+             TestHelper.done();
         }
 
         [Test]
         public void DeleteStubUser()
         {
             TestHelper.log("Deleting test user John Doe");
-            try
+            repository.Remove(testPerson);
+            /*TestHelper.log("Searching for John Doe");
+            using (var session = ConfigureRepository.SessionFactory.OpenSession())
             {
-                Person stubUser = new Person { NickName = "John", Password = "Doe", PrimaryMail = "john@doe.foo", UserPhoto = null };
-                //repository.DeleteUser("John");
-                Assert.IsTrue(!repository.Users.Contains(stubUser));
-                TestHelper.done();
-            }
-            catch (Exception e)
-            {
-                TestHelper.error(e.Message);
-            }
-
-            TestHelper.log("Searching for John Doe");
-            try
-            {
-                Person John = repository.Users.Where(x => x.PrimaryMail == "john@doe.foo").FirstOrDefault();
-                Assert.IsNull(John);
-                TestHelper.done();
-            }
-            catch (Exception e)
-            {
-                TestHelper.error(e.Message);
-            }
+                var listPersons = session.QueryOver<Person>().List();
+                //listPersons.ToList<Person>();
+                Assert.AreEqual(listPersons.Count, 0);
+            }*/
         }
     }
 }

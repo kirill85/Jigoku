@@ -20,6 +20,7 @@ namespace Jigoku.Tests
             person.NickName = "testNick" + DateTime.Now.Ticks.ToString();
             person.Password = "password";
             person.PrimaryMail = "testmail@example.com";
+            person.Projects = null;
             using (ISession session = ConfigureRepository.SessionFactory.OpenSession())
             {
                 using (ITransaction transaction = session.BeginTransaction())
