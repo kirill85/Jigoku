@@ -49,13 +49,6 @@ namespace Jikogu.Tests
         {
             TestHelper.log("Deleting test user John Doe");
             repository.Remove(testPerson);
-            /*TestHelper.log("Searching for John Doe");
-            using (var session = ConfigureRepository.SessionFactory.OpenSession())
-            {
-                var listPersons = session.QueryOver<Person>().List();
-                //listPersons.ToList<Person>();
-                Assert.AreEqual(listPersons.Count, 0);
-            }*/
         }
     }
 }

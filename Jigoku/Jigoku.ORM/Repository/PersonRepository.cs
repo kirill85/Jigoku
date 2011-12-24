@@ -64,6 +64,12 @@ namespace Jigoku.ORM.Repository
             return session.Get<Person>(Id);
         }
 
+        public IList<Project> ProjectsByPerson(Person person)
+        {
+            var query = session.QueryOver<Project>().Where(m => m.ProjectId == person.Projects.GetEnumerator().Current.ProjectId).List();
+            return query;
+        }
+
         #endregion
 
         #region Члены IDisposable

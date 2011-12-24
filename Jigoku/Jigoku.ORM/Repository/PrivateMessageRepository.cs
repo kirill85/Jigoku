@@ -1,12 +1,12 @@
 ﻿using Jigoku.Core.Entities;
 using NHibernate;
 using System;
-using NHibernate.Criterion;
 using System.Collections.Generic;
+using Jigoku.ORM.Repository.AbstractInterface;
 
 namespace Jigoku.ORM.Repository
 {
-    public class PrivateMessageRepository : IDisposable
+    public class PrivateMessageRepository : IEntityRepository<PrivateMessage>
     {
         ISession session;
 
@@ -76,6 +76,13 @@ namespace Jigoku.ORM.Repository
             return session.QueryOver<PrivateMessage>()
                           .Where(x => x.PersonTo.Id == receiver.Id)
                           .List();
+        }
+
+        public IList<PrivateMessage> GetByText(string text)
+        {
+            int lenMatchPattern = text.Length;
+            var query = session.QueryOver<PrivateMessage>().Where(m => m.Body.Substring(0, lenMatchPattern) == text).List();
+            return query;
         }
 
         public void Dispose()
