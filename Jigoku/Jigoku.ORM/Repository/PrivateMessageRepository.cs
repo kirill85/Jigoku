@@ -85,6 +85,13 @@ namespace Jigoku.ORM.Repository
             return query;
         }
 
+        public IList<PrivateMessage> GetByUser(string userText)
+        {
+            int lenUserPattern = userText.Length;
+            var query = session.QueryOver<PrivateMessage>().Where(m => m.PersonFrom.NickName.Substring(0, lenUserPattern) == userText).List();
+            return query;
+        }
+
         public void Dispose()
         {
             session.Dispose();
