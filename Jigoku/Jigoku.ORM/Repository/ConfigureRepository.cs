@@ -1,8 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using NHibernate;
+﻿using NHibernate;
 using NHibernate.Cfg;
+using NHibernate.Tool.hbm2ddl;
 
 namespace Jigoku.ORM.Repository
 {
@@ -16,10 +14,11 @@ namespace Jigoku.ORM.Repository
             {
                 var nhConfig = new Configuration().Configure();
                 SessionFactory = nhConfig.BuildSessionFactory();
+                new SchemaExport(nhConfig).Execute(false, true, false);
             }
         }
 
-        public static bool IsConfigured()
+        private static bool IsConfigured()
         {
             return (SessionFactory != null);
         }

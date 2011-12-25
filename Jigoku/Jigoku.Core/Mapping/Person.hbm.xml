@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" assembly="Jigoku.Core" namespace="Jigoku.Core.Entities">
+	<class name="Person">
+		<id name="Id" column="Id">
+			<generator class="sequence">
+				<param name="sequence">Person_Id_seq</param>
+			</generator>
+		</id>
+		<property name="NickName" column="NickName" length="32" not-null="true" unique="true" index="PersName"/>
+		<property name="Password" column="passwd" length="32" not-null="true"/>
+		<property name="PrimaryMail" column="PrimaryMail" not-null="true"/>
+		<property name="UserPhoto" column="UserPhoto"/>
+		<set name="Projects" cascade="all" table="Person_Project">
+			<key column="Id"/>
+			<many-to-many column="ProjectId" class="Project"/>
+		</set>
+	</class>
+</hibernate-mapping>
