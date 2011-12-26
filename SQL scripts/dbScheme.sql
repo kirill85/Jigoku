@@ -34,9 +34,9 @@ ALTER TABLE contacts ADD COLUMN "Value" character varying(100);
 CREATE TABLE "PrivateMessage"
 (
   "Id" serial NOT NULL,
-  "IdFrom" integer, -- РћС‚ РєРѕРіРѕ
-  "IdTo" integer, -- РљРѕРјСѓ
-  "Topic" character varying(255), -- РўРµРјР° СЃРѕРѕР±С‰РµРЅРёСЏ
+  "IdFrom" integer, -- От кого
+  "IdTo" integer, -- Кому
+  "Topic" character varying(255), -- Тема сообщения
   "Body" text,
   "Attachment" bytea,
   "DateSend" timestamp with time zone NOT NULL,
@@ -53,9 +53,9 @@ WITH (
   OIDS=FALSE
 );
 ALTER TABLE "PrivateMessage" OWNER TO xgb_jigoku;
-COMMENT ON COLUMN "PrivateMessage"."IdFrom" IS 'РћС‚ РєРѕРіРѕ';
-COMMENT ON COLUMN "PrivateMessage"."IdTo" IS 'РљРѕРјСѓ';
-COMMENT ON COLUMN "PrivateMessage"."Topic" IS 'РўРµРјР° СЃРѕРѕР±С‰РµРЅРёСЏ';
+COMMENT ON COLUMN "PrivateMessage"."IdFrom" IS 'От кого';
+COMMENT ON COLUMN "PrivateMessage"."IdTo" IS 'Кому';
+COMMENT ON COLUMN "PrivateMessage"."Topic" IS 'Тема сообщения';
 
 
 -- Index: "IdxTopic"
@@ -130,4 +130,3 @@ CREATE SEQUENCE "User_Project_Id_seq"
   START 1
   CACHE 1;
 ALTER TABLE "User_Project_Id_seq" OWNER TO xgb_jigoku;
-
