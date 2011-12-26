@@ -10,5 +10,10 @@ namespace Jigoku.Core.Entities
         public virtual string PrimaryMail { get; set; }
         public virtual string UserPhoto { get; set; }//URL gravatar 
         public virtual ISet<Project> Projects { get; set; }
+
+        public Person()
+        {
+            Projects = new HashSet<Project>();
+        }
     }
 }

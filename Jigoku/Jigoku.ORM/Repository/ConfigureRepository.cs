@@ -18,7 +18,7 @@ namespace Jigoku.ORM.Repository
             }
         }
 
-        public static bool IsConfigured()
+        private static bool IsConfigured()
         {
             return (SessionFactory != null);
         }
