@@ -39,22 +39,15 @@ namespace Jigoku
             RegisterGlobalFilters(GlobalFilters.Filters);
             RegisterRoutes(RouteTable.Routes);
 
-            ///<Bug annotation 2>
-            ///I guess this part is necessary and we can't colse it as an optional debug option, so I mask
-            ///#if _MyDEBUG #endif
-            ///And there is a new bug coming here
-            ///Could not determine type for: Jigoku.Core.Entities.text, Jigoku.Core, for columns: NHibernate.Mapping.Column(NickName)
-            ///</Bug annotation 2>
+            ///<Bug annotation>
+            ///Runtime ERROR: The type initializer for 'NHibernate.ByteCode.Castle.ProxyFactory' threw an exception.
+            ///</Bug annotation>
             var nhConfig = new Configuration().Configure();
             SessionFactory = nhConfig.BuildSessionFactory();
         }
 
         protected void Application_BeginRequest(object sender, EventArgs args)
         {
-            ///<Bug annotation>
-            ///BUG : Object reference not set to an instance of an object.
-            ///Buildable but fails on run.
-            ///</Bug annotation>
             var session = SessionFactory.OpenSession();
             CurrentSessionContext.Bind(session);
         }
