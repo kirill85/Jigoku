@@ -76,6 +76,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ContactsTests.cs" />
+    <Compile Include="PrivateMessageTest.cs" />
+    <Compile Include="ProjectTest.cs" />
     <Compile Include="TestHelper.cs" />
     <Compile Include="PersonTest.cs" />
     <Compile Include="Program.cs" />
@@ -99,6 +101,9 @@
       <Project>{FAF231EA-2C47-484C-9099-9327F46A2B09}</Project>
       <Name>Jigoku.ORM</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="ToDo.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
