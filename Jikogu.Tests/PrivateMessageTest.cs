@@ -31,13 +31,6 @@ namespace Jigoku.Tests
 		}
 
 		[Test]
-		public void UpdatePMTest()
-		{
-			pm.Body = "I not be love you, Mary.";
-			repository.Update(pm);
-		}
-
-		[Test]
 		public void RemovePMTest()
 		{
 			repository.Remove(pm);
