@@ -9,7 +9,6 @@ namespace Jigoku.Core.Entities
         public virtual Person PersonTo { get; set; }
         public virtual string Topic { get; set; }
         public virtual DateTime DateSend { get; set; }
-        public virtual DateTime DateReceive { get; set; }
         public virtual string Body { get; set; }
         public virtual byte[] Attachment { get; set; }
     }

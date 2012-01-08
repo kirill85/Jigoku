@@ -30,7 +30,7 @@ namespace Jigoku.ORM.Repository
             {
                 if (message != null)
                 {
-                    session.Update(message);
+                    session.SaveOrUpdate(message);
                     transaction.Commit();
                 }
                 else

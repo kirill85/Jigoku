@@ -7,8 +7,12 @@
 		<property name="dialect">
 			NHibernate.Dialect.PostgreSQLDialect, NHibernate
 		</property>
+		<!--
 		<property name="connection.connection_string">
 			Server=postgres44.1gb.ru;Port=5432;User Id=xgb_jigoku;Password=85849e82;Database=xgb_jigoku;CommandTimeout=100;
+		</property>-->
+		<property name="connection.connection_string_name">
+			test
 		</property>
 		<property name="current_session_context_class">
 			web
