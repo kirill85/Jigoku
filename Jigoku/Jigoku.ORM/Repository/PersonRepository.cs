@@ -33,7 +33,7 @@ namespace Jigoku.ORM.Repository
             {
                 using (var tr = session.BeginTransaction())
                 {
-                    session.Save(person);
+                    session.SaveOrUpdate(person);
                     tr.Commit();
                 }
             }

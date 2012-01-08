@@ -85,6 +85,7 @@
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
+    <None Include="App.config" />
     <None Include="Schemas\nhibernate-configuration.xsd">
       <SubType>Designer</SubType>
     </None>
