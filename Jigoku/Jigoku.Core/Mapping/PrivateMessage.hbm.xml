@@ -10,7 +10,6 @@
 		<property name="Body" column="Body" />
 		<property name="Attachment" column="Attachment"/>
 		<property name="DateSend" not-null="true"/>
-		<property name="DateReceive" not-null="true"/>
 		<many-to-one name="PersonFrom" cascade="all" class="Person">
 			<column name="PersonFrom"/>
 		</many-to-one>
