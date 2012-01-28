@@ -5,13 +5,13 @@ using System.Web;
 using System.Web.Mvc;
 using Jigoku.Core.Entities;
 
-namespace Jikogu.Controllers
+namespace Jigoku.Controllers
 {
     public class AccountController : Controller
     {
         //
         // GET: /Account/
-
+		[HttpGet]
         public ActionResult Register()
         {
             return View();
