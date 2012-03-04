@@ -1,4 +1,4 @@
-﻿@model Jigoku.Core.Entities.Person
+﻿@model Jigoku.Models.Person
 
 @{
     Layout = null;
@@ -8,14 +8,22 @@
 
 <html>
 <head>
+	<script src="/Scripts/MicrosoftAjax.js" type="text/javascript"></script>
+	<script src="/Scripts/MicrosoftMvcAjax.js" type="text/javascript"></script>
+	<script src="/Scripts/MicrosoftMvcValidation.js" type="text/javascript"></script>
     <title>Register</title>
 </head>
 <body>
-    <div>
-		@Html.ValidationSummary()
+	<div>
+		@Html.ValidationSummary(true)
+		@Html.EnableClientValidation(true)
         <p>Логин: @Html.TextBoxFor(m => m.NickName)</p>
-		<p>Пароль: @Html.PasswordFor(m => m.Password)</p>
+		<p id="pass">Пароль: @Html.PasswordFor(m => m.Password)</p>
+		<p id="pass_pair">Повтор пароля: @Html.PasswordFor(m => m.PairPassword)</p>
 		<p>Электронный адрес: @Html.TextBoxFor(m => m.PrimaryMail)</p>
     </div>
+	<div>
+		<input type="submit" value="Регистрация" />
+	</div>
 </body>
 </html>
