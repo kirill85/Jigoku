@@ -43,9 +43,6 @@
     <Reference Include="NHibernate.ByteCode.Castle">
       <HintPath>..\..\Libs\Fluent NHibernate\NHibernate.ByteCode.Castle.dll</HintPath>
     </Reference>
-    <Reference Include="NHibernate.Mapping.Attributes">
-      <HintPath>..\..\Libs\NHibernate.Mapping.Attributes.dll</HintPath>
-    </Reference>
     <Reference Include="Npgsql">
       <HintPath>..\..\Libs\Npgsql.dll</HintPath>
     </Reference>
