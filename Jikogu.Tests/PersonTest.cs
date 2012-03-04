@@ -7,7 +7,7 @@ using Jigoku.Core.Entities;
 using Jigoku.Tests;
 using System.Collections.Generic;
 
-namespace Jikogu.Tests
+namespace Jigoku.Tests
 {
     [TestFixture]
     public class PersonTest
